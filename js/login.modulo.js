@@ -37,6 +37,11 @@ var app = {
 		document.addEventListener("backbutton", function(){
 			return false;
 		}, true);
+		
+		idUsuario = window.localStorage.getItem("sesion");
+		
+		if (idUsuario != null && idUsuario != undefined && idUsuario != '')
+			location.href = "inicio.html";
 	}
 };
 

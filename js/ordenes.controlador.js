@@ -53,14 +53,18 @@ function ordenes(){
 					
 					$("#puntosRevision").find("ul").append(li);
 				});
-				
-				if (orden.idOrden == window.localStorage.setItem("orden"))
+				$("#btnIniSeguimiento").prop("orden", orden.idOrden);
+				if (orden.idOrden == window.localStorage.getItem("orden"))
 					$("#btnIniSeguimiento").hide();
 				else
 					$("#btnIniSeguimiento").show();
 			});
 			
 			$("#ordenes").append(plantilla);
+			
+			$("#btnIniSeguimiento").click(function(){
+				setSeguimiento($("#btnIniSeguimiento").prop("orden"));
+			});
 		});
 	}, "json");
 	
@@ -91,6 +95,6 @@ function ordenes(){
 			notificationIconColor: '#F47321'
 		});
 		
-		  backgroundGeolocation.start();
+		backgroundGeolocation.start();
 	}
 }
