@@ -1,4 +1,4 @@
-var server = "http://192.168.0.6/sigueme-web/";
+var server = "http://192.168.0.5/sigueme-web/";
 var key_maps = "AIzaSyDksOeHNOatBXxpyejOzleqK6PZCQk2gq0";
 
 
