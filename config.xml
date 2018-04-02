@@ -58,7 +58,12 @@
 		<plugin name="cordova-plugin-network-information" source="npm"/>
 		<plugin name="cordova-plugin-whitelist" source="npm"/>
 		<plugin name="cordova-plugin-splashscreen" source="npm"/>
-		
+		<plugin name="cordova-plugin-mauron85-background-geolocation">
+			<variable name="ALWAYS_USAGE_DESCRIPTION" value="En el seguimiento de ordenes de servicio, la app requiere acceso al GPS en segundo plano"/>
+			<variable name="MOTION_USAGE_DESCRIPTION" value="La aplicación requiere detección de movimientos"/>
+			<variable name="GOOGLE_PLAY_SERVICES_VERSION" value="11+"/>
+			<variable name="ANDROID_SUPPORT_LIBRARY_VERSION" value="23+"/>
+		</plugin>
 
 
 
