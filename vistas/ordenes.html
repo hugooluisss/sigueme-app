@@ -1,0 +1,73 @@
+<ul id="ordenes">
+</ul>
+
+<div id="detalleOrden">
+	<nav class="navbar navbar-fixed-top">
+		<div class="navbar-header">
+			<button id="btnRegresar" class="regresar"><i class="fa fa-arrow-circle-o-left fa-2x" aria-hidden="true"></i></button> 
+			Detalle de la Orden <span campo="folio"></span>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="jumbotron">
+			<div class="row text-danger">
+				<label class="col-xs-3">Folio</label><div class="col-xs-9"><span campo="folio"></span></div>
+			</div>
+			<div class="row">
+				<label class="col-xs-3">Estado</label><div class="col-xs-9" campo="estado"></div>
+			</div>
+			<div class="row">
+				<label class="col-xs-3">Descripción</label><div class="col-xs-9"><span campo="fechaservicio"></span> <span campo="horaservicio"></span></div>
+			</div>
+			<div class="row">
+				<label class="col-xs-3">Cliente</label><div class="col-xs-9" campo="cliente"></div>
+			</div>
+			<div class="row">
+				<label class="col-xs-3">Correo electrónico</label><div class="col-xs-9" campo="correo"></div>
+			</div>
+			<div class="row">
+				<label class="col-xs-3">Teléfono</label><div class="col-xs-9" campo="telefono"></div>
+			</div>
+			<hr />
+			<div class="row">
+				<label class="col-xs-12">Descripción</label>
+				<div class="col-xs-12" campo="descripcion"></div>
+			</div>
+			<hr />
+			<div class="row">
+				<label class="col-xs-12">Requerimientos</label>
+				<div class="col-xs-12" campo="requerimientos"></div>
+			</div>
+			<hr />
+			<div id="puntosRevision">
+				<ul class="list-group"></ul>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<button id="btnVerMapa" class="btn btn-block btn-warning" data-toggle="modal" data-target="#winMapaDetalle">Puntos de revisión en el mapa</button>
+				</div>
+			</div>
+			<hr />
+			<div class="row">
+				<div class="col-xs-12">
+					<button id="btnIniSeguimiento" class="btn btn-block btn-danger">Iniciar seguimiento</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="winMapaDetalle" class="modal" tabindex="1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content modal-lg">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Puntos de revisión</h4>
+			</div>
+			<div class="modal-body" id="mapaDetalle" style="height: 600px">
+			</div>
+		</div>
+	</div>
+</div>

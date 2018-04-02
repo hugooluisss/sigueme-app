@@ -1,0 +1,77 @@
+body[modulo=trabajo]{
+	height: 100%;
+	nav.navbar{
+		background: @rojo;
+		background-position: center center;
+		
+		.navbar-header{
+			width: 100%;
+		}
+		
+		a, button{
+			color: white;
+		}
+		
+		button[data-target]{
+			margin-top: 10px;
+			margin-right: 10px;
+			border: none;
+			background: none;
+		}
+		
+		button[hide-target]{
+			font-size: 20px;
+			color: @rojo;
+			border: none;
+			background: none;
+		}
+		
+		#menuPrincipal{
+			background: @gris;
+			background-size: cover;
+			background-position: center bottom;
+			height: 100%;
+			max-height: none;
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			background: url(@imagenBackground);
+			background-size: cover;
+			
+			.opciones{
+				margin-top: 100px;
+			}
+		}
+	}
+	
+	.modulo{
+		padding-top: 50px;
+		height: 100%;
+		
+		ul{
+			list-style: none;
+			padding-left: 0px;
+			margin-left: 0px;
+			
+			li{
+				border-top: 1px solid @rojo;
+				margin-left: 5px;
+				margin-right: 5px;
+					
+				&::last-children{
+					border-bottom: 1px solid @rojo;
+				}
+				
+				.panel{
+					.panel-heading{
+						font-weight: bold;
+						color: @rojo;
+					}
+				}
+			}
+		}
+		@import "detalleOrden.less";
+		@import "home.less";
+	}
+}
