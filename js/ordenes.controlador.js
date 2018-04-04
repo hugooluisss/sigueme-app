@@ -70,31 +70,27 @@ function ordenes(){
 	
 	function setSeguimiento(orden){
 		window.localStorage.setItem("orden", orden);
-		backgroundGeolocation.configure(function(location) {
-			$.post(server + "cordenes", {
-				"movil": true,
-				"orden": window.localStorage.getItem("orden"),
-				"posicion": location
-			}, function(resp){
-				if (!resp.band)
-					console.log('Punto no reportado');
-			}).fail(function(){
-				console.log('Error en el servidor al reportar la ubicación');
-			});
-		}, function(error) {
-			console.log('BackgroundGeolocation error');
-		}, {
-			desiredAccuracy: 10,
-			stationaryRadius: 10,
-			distanceFilter: 5,
-			locationProvider: 0,
-			interval: 10,
-			fastestInterval: 5,
-			activitiesInterval: 10,      
-			notificationText: 'Seguimiento en proceso',
-			notificationIconColor: '#F47321'
-		});
 		
-		backgroundGeolocation.start();
+		cordova.plugins.backgroundMode.on('enable', function(){
+			cordova.plugins.backgroundMode.disableWebViewOptimizations(); 
+			navigator.geolocation.watchPosition(function(position){
+				$.post(server + "cordenes", {
+					"movil": true,
+					"orden": window.localStorage.getItem("orden"),
+					"posicion": location
+				}, function(resp){
+					if (!resp.band)
+						console.log('Punto no reportado');
+				}).fail(function(){
+					console.log('Error en el servidor al reportar la ubicación');
+				});
+			}, function(error){
+				console.log("Error GPS", error);
+			}, {
+				enableHighAccuracy: false, 
+				maximumAge        : 1200000, 
+				timeout           : 1200000
+			});
+		});
 	}
 }

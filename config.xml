@@ -59,7 +59,7 @@
 		<plugin name="cordova-plugin-whitelist" source="npm"/>
 		<plugin name="cordova-plugin-splashscreen" source="npm"/>
 		<plugin name="cordova-plugin-geolocation" spec="2.1.0" source="npm"/>
-		<plugin name="cordova-plugin-mauron85-background-geolocation" source="npm"/>
+		<plugin name="cordova-plugin-background-mode"/>
 		
 		<!-- Define app icon for each platform. -->  
 		<!--<icon src="res/icon/icono.png" />-->
