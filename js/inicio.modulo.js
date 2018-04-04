@@ -80,5 +80,5 @@ $(document).ready(function(){
 		$("#menuPrincipal").hide("slide", { direction: "left" }, 500);
 	});
 	
-	home();
+	//home();
 });
