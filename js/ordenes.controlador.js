@@ -102,11 +102,25 @@ function ordenes(){
 	}, "json");
 	
 	$("#btnIniSeguimiento").click(function(){
-		setSeguimiento($("#btnIniSeguimiento").attr("orden"));
+		if (window.localStorage.getItem("orden") == '' || window.localStorage.getItem("orden") == undefined)
+			setSeguimiento($("#btnIniSeguimiento").attr("orden"));
+		else{
+			mensaje.confirm({titulo: "¿Seguro?", mensaje: "Ya se está realizando el seguimiento de una orden ¿Estás seguro de detener para iniciar el de esta orden?", funcion: function(result){
+				if (result)
+					setSeguimiento($("#btnIniSeguimiento").attr("orden"));
+			}})
+		}
+	});
+	
+	$("#btnStopSeguimiento").click(function(){
+		cordova.plugins.backgroundMode.disable();
+		window.localStorage.removeItem("orden");
+		mensaje.log({mensaje: "El reporte de ubicación ha finalizado"});
 	});
 	
 	function setSeguimiento(orden){
 		window.localStorage.setItem("orden", orden);
 		cordova.plugins.backgroundMode.enable();
+		mensaje.log({mensaje: "Se inició el reporte de esta orden"});
 	}
 }
