@@ -91,10 +91,13 @@ function ordenes(){
 					$("#puntosRevision").find("ul").append(li);
 				});
 				$("#btnIniSeguimiento").attr("orden", orden.idOrden);
-				if (orden.idOrden == window.localStorage.getItem("orden"))
+				if (orden.idOrden == window.localStorage.getItem("orden")){
 					$("#btnIniSeguimiento").hide();
-				else
+					$("#btnStopSeguimiento").show();
+				}else{
 					$("#btnIniSeguimiento").show();
+					$("#btnStopSeguimiento").hide();
+				}
 			});
 			
 			$("#ordenes").append(plantilla);
@@ -105,7 +108,7 @@ function ordenes(){
 		if (window.localStorage.getItem("orden") == '' || window.localStorage.getItem("orden") == undefined)
 			setSeguimiento($("#btnIniSeguimiento").attr("orden"));
 		else{
-			mensaje.confirm({titulo: "¿Seguro?", mensaje: "Ya se está realizando el seguimiento de una orden ¿Estás seguro de detener para iniciar el de esta orden?", funcion: function(result){
+			mensajes.confirm({titulo: "¿Seguro?", mensaje: "Ya se está realizando el seguimiento de una orden ¿Estás seguro de detener para iniciar el de esta orden?", funcion: function(result){
 				if (result)
 					setSeguimiento($("#btnIniSeguimiento").attr("orden"));
 			}})
@@ -115,12 +118,12 @@ function ordenes(){
 	$("#btnStopSeguimiento").click(function(){
 		cordova.plugins.backgroundMode.disable();
 		window.localStorage.removeItem("orden");
-		mensaje.log({mensaje: "El reporte de ubicación ha finalizado"});
+		mensajes.log({mensaje: "El reporte de ubicación ha finalizado"});
 	});
 	
 	function setSeguimiento(orden){
 		window.localStorage.setItem("orden", orden);
 		cordova.plugins.backgroundMode.enable();
-		mensaje.log({mensaje: "Se inició el reporte de esta orden"});
+		mensajes.log({mensaje: "Se inició el reporte de esta orden"});
 	}
 }
