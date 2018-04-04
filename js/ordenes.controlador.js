@@ -26,7 +26,7 @@ function ordenes(){
 			$.post(server + "cordenes", {
 				"movil": true,
 				"orden": window.localStorage.getItem("orden"),
-				"posicion": posicion,
+				"posicion": posicion["coords"],
 				"action": "savePosicionRuta"
 			}, function(resp){
 				if (!resp.band)
