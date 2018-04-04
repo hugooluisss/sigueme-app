@@ -42,15 +42,15 @@ var app = {
 			return false;
 		}, true);
 		
-		objUser = new TUsuario();
-		
-		objUser.getPlantillas({
+		objUser = new TUsuario({
 			fn: {
 				after: function(){
 					home();
 				}
 			}
 		});
+		
+		getPlantillas();
 	}
 };
 
