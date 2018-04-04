@@ -26,7 +26,8 @@ function ordenes(){
 			$.post(server + "cordenes", {
 				"movil": true,
 				"orden": window.localStorage.getItem("orden"),
-				"posicion": posicion
+				"posicion": posicion,
+				"action": "savePosicionRuta"
 			}, function(resp){
 				if (!resp.band)
 					console.log('Punto no reportado');
