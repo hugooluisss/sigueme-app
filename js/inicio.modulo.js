@@ -44,7 +44,7 @@ var app = {
 		
 		objUser = new TUsuario();
 		
-		getPlantillas({
+		objUser.getPlantillas({
 			fn: {
 				after: function(){
 					home();

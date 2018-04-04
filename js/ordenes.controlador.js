@@ -22,11 +22,11 @@ function ordenes(){
 	
 	cordova.plugins.backgroundMode.on('enable', function(){
 		cordova.plugins.backgroundMode.disableWebViewOptimizations(); 
-		navigator.geolocation.watchPosition(function(position){
+		navigator.geolocation.watchPosition(function(posicion){
 			$.post(server + "cordenes", {
 				"movil": true,
 				"orden": window.localStorage.getItem("orden"),
-				"posicion": location
+				"posicion": posicion
 			}, function(resp){
 				if (!resp.band)
 					console.log('Punto no reportado');
