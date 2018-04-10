@@ -80,5 +80,17 @@ $(document).ready(function(){
 		$("#menuPrincipal").hide("slide", { direction: "left" }, 500);
 	});
 	
+	$("#menuPrincipal").find("#mnuSalir").click(function(){
+		alertify.confirm("¿Seguro?", function(e){
+    		if(e) {
+	    		window.localStorage.removeItem("sesion");
+	    		window.localStorage.removeItem("orden");
+	    		backgroundGeolocation.stop();
+	    		
+	    		location.href = "index.html";
+	    	}
+    	});
+	});
+	
 	//home();
 });
