@@ -4,6 +4,7 @@ function ordenes(){
 	$(".modulo").html(plantillas['ordenes']);
 	$(".modulo").find("#btnRegresar").click(function(){
 		$("#detalleOrden").hide();
+		$("ul#ordenes").show();
 	});
 	
 	cordova.plugins.backgroundMode.on('activate', function() {
@@ -66,6 +67,7 @@ function ordenes(){
 			
 			plantilla.find(".showDetalle").click(function(){
 				$("#detalleOrden").show();
+				$("ul#ordenes").hide();
 				$.each(orden, function(key, valor){
 					$("#detalleOrden").find("[campo=" + key + "]").html(valor);
 				});
@@ -139,5 +141,7 @@ function ordenes(){
 		window.localStorage.setItem("orden", orden);
 		cordova.plugins.backgroundMode.enable();
 		mensajes.log({mensaje: "Se inició el reporte de esta orden"});
+		
+		ordenes();
 	}
 }
