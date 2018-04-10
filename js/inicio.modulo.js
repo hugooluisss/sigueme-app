@@ -85,7 +85,7 @@ $(document).ready(function(){
     		if(e) {
 	    		window.localStorage.removeItem("sesion");
 	    		window.localStorage.removeItem("orden");
-	    		backgroundGeolocation.stop();
+	    		cordova.plugins.backgroundMode.disable();
 	    		
 	    		location.href = "index.html";
 	    	}
