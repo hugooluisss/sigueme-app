@@ -74,6 +74,12 @@ $(document).ready(function(){
 					$("#frmLogin [type=submit]").prop("disabled", true);
 				},
 				after: function(data){
+					window.localStorage.removeItem("sesion");
+					window.localStorage.setItem("sesion", data.datos.usuario);
+					window.localStorage.setItem("perfil", data.datos.perfil);
+					
+					location.href = "inicio.html";
+					/*
 					if (data.band == false || (data.datos.perfil != 5)){
 						mensajes.alert({mensaje: "Tus datos no son válidos", titulo: "Error"});
 						$("#frmLogin [type=submit]").prop("disabled", false);
@@ -84,6 +90,7 @@ $(document).ready(function(){
 						
 						location.href = "inicio.html";
 					}
+					*/
 				}
 			});
 		}

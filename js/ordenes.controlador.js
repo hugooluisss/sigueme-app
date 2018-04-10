@@ -116,9 +116,20 @@ function ordenes(){
 	});
 	
 	$("#btnStopSeguimiento").click(function(){
-		cordova.plugins.backgroundMode.disable();
-		window.localStorage.removeItem("orden");
-		mensajes.log({mensaje: "El reporte de ubicación ha finalizado"});
+		$.post(server + "cordenes", {
+			"movil": true,
+			"orden": window.localStorage.getItem("orden"),
+			"action": "setTerminar"
+		}, function(resp){
+			if (!resp.band){
+				cordova.plugins.backgroundMode.disable();
+				window.localStorage.removeItem("orden");
+				mensajes.log({mensaje: "El reporte de ubicación ha finalizado"});
+				ordenes();
+			}
+		}).fail(function(){
+			console.log('No se pudo finalizar el seguimiento en el servidor');
+		});
 	});
 	
 	function setSeguimiento(orden){

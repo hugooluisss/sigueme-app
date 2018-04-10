@@ -1,4 +1,6 @@
 var server = "http://192.168.0.5/sigueme-web/";
+var server = "http://192.168.2.4/sigueme-web/";
+var server = "http://sigueme.cpymes.com.mx/";
 var key_maps = "AIzaSyDksOeHNOatBXxpyejOzleqK6PZCQk2gq0";
 
 
