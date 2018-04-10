@@ -34,6 +34,9 @@ function ordenes(){
 			}).fail(function(){
 				console.log('Error en el servidor al reportar la ubicación');
 			});
+			
+			if (window.localStorage.getItem("orden") == '')
+				cordova.plugins.backgroundMode.disable();
 		}, function(error){
 			console.log("Error GPS", error);
 		}, {
